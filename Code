@@ -1,0 +1,10 @@
+n = int(input())
+x = sorted(list(map(int, input().split())))
+
+
+integer = int(len(x)/4 + 1/4)
+
+
+
+if len(x) % 2 != 0:
+    print(x[len(x)/2])
