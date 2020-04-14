@@ -1,3 +1,4 @@
+Vanilla code to calculate 1st quartile, median and 3rd quartile of an array.
 
 n = int(input())
 x = sorted(list(map(int, input().split())))
