@@ -29,7 +29,7 @@ if __name__ == '__main__':
         scores.append(score)
 
 minkey = min(scores)
-scores2 = scores
+scores2 = set(scores)
 scores2.remove(minkey)
 minkey2 = min(scores2)
 
