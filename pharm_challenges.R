@@ -1,3 +1,5 @@
+### Check Rstudio CLOUD project workspaces for R-scripts, its in beta but pretty cool platform!
+
 # Declare vector with daily drug dosage readings
 DINR <- c(1.6, 2.0, 3.2, 1.9, 2.0, 1.9, 2.5, 2.2, 1.8, 2.0, 2.5, 2.2, 1.8, 2.0, 2.5, 2.2)
 
