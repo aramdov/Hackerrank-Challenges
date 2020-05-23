@@ -1,4 +1,4 @@
-Vanilla code to calculate 1st quartile, median and 3rd quartile of an array.
+# Vanilla code to calculate 1st quartile, median and 3rd quartile of an array.
 
 n = int(input())
 x = sorted(list(map(int, input().split())))
@@ -15,8 +15,8 @@ if len(x) % 2 != 0:
     print(x[len(x)/2])
     
 
-Nested lists
-https://www.hackerrank.com/challenges/nested-list/problem
+# Nested lists
+# https://www.hackerrank.com/challenges/nested-list/problem
 
 if __name__ == '__main__':
     python_students = []
