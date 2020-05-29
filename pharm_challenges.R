@@ -73,11 +73,11 @@ if (breaker == TRUE) {break}}
 if (found_cons == FALSE) {print(-1)}
 
 
-# next assignment
+# next code challenge
 females = gender[which(gender=="female")]
 fedose = c()
 
-# run this for loop with k to get the vector for "femalesdose" so indexes matche up with the "females" vector
+# loop to create another vector where the indexes match up for dosage and patient
 z=0
 for (z in 1:length(gender)) {
   if (gender[z] == "female") {
@@ -85,8 +85,6 @@ for (z in 1:length(gender)) {
   }
 }
 
-# once the 2 vectors above, "females" and "femalesdose" have been created and have 1:41 length, run this loop below
-# set counter and j to 0
 counter = 0
 w=0
 for (w in 1:length(females)) {
