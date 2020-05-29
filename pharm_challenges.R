@@ -71,3 +71,28 @@ for (x in 5:length(INR2)) {
 if (breaker == TRUE) {break}}
 
 if (found_cons == FALSE) {print(-1)}
+
+
+# next assignment
+females = gender[which(gender=="female")]
+fedose = c()
+
+# run this for loop with k to get the vector for "femalesdose" so indexes matche up with the "females" vector
+z=0
+for (z in 1:length(gender)) {
+  if (gender[z] == "female") {
+    fedose <- c(fedose, dose[z])
+  }
+}
+
+# once the 2 vectors above, "females" and "femalesdose" have been created and have 1:41 length, run this loop below
+# set counter and j to 0
+counter = 0
+w=0
+for (w in 1:length(females)) {
+  if (counter == 5) {break}
+  if (fedose[w] > 49) {
+    counter = counter + 1
+    print(c("Female High Dose Patient", w, "has dose", fedose[w])) # spacing is a bit fucked up in output but kliris
+  }
+}
