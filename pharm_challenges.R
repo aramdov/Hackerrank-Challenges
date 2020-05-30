@@ -91,6 +91,5 @@ for (w in 1:length(females)) {
   if (counter == 5) {break}
   if (fedose[w] > 49) {
     counter = counter + 1
-    print(c("Female High Dose Patient", w, "has dose", fedose[w])) # spacing is a bit fucked up in output but kliris
-  }
+    print(c("Female High Dose Patient", w, "has dose", fedose[w]))
 }
