@@ -42,3 +42,15 @@ for sublists in python_students:
 newlist = sorted(newlist)
 for i in newlist:
     print(i)
+
+    
+### Diagonal Difference algo
+    # https://www.hackerrank.com/challenges/diagonal-difference/problem
+
+def diagonalDifference(arr):
+    DR = []
+    DL = []
+    for i in range(0, n):
+        DR.append(arr[i][i])
+        DL.append(arr[i][(n-1-i)])
+    return abs((sum(DR) - sum(DL)))
