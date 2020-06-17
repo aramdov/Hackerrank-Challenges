@@ -84,3 +84,15 @@ def birthdayCakeCandles(ar):
         count = count + 1
 
     return count
+
+### kangaroo
+    # https://www.hackerrank.com/challenges/kangaroo/problem
+def kangaroo(x1, v1, x2, v2):
+    if (v2-v1 == 0): # parallel lines never intersect
+        return("NO")
+    
+    if ( (x1-x2) / (v2-v1) ) > 0 and int(((x1-x2) / (v2-v1))) == ((x1-x2) / (v2-v1)):
+        return ("YES") # general algebraic equality form
+
+    else: # all other cases
+        return ("NO")
