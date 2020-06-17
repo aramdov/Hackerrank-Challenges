@@ -54,3 +54,33 @@ def diagonalDifference(arr):
         DR.append(arr[i][i])
         DL.append(arr[i][(n-1-i)])
     return abs((sum(DR) - sum(DL)))
+
+### grade rounding up
+    # https://www.hackerrank.com/challenges/grading/problem
+def gradingStudents(grades):
+    
+    for i in range(grades_count):
+
+        if grades[i] >= 38 and grades[i] < 40:
+            grades[i] = 40
+
+        if grades[i] > 40:
+            for z in range(1,3):
+                if (grades[i] + z) % 5 == 0:
+                    grades[i] = (grades[i] + z)
+                    break
+
+    return grades 
+
+### birthday cake candles,
+    # https://www.hackerrank.com/challenges/birthday-cake-candles/problem
+def birthdayCakeCandles(ar):
+    count = 0
+
+    sorted_ar = sorted(ar, reverse=True)
+    z = sorted_ar.count(max(sorted_ar))
+
+    for i in range(z):
+        count = count + 1
+
+    return count
