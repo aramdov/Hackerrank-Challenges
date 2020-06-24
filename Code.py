@@ -163,3 +163,20 @@ def getTotalX(a, b):
 
     return between_counter
             
+### /breaking-best-and-worst-records
+    # https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
+def breakingRecords(scores):
+    copy = []
+    least_count = 0
+    high_count = 0
+    for i in range(n):
+        copy.append(scores[i])
+        if i >= 1:
+            if copy[i] == min(copy):
+                if copy.count(copy[i]) == 1:
+                    least_count = least_count + 1
+            if copy[i] == max(copy):
+                if copy.count(copy[i]) == 1:
+                    high_count = high_count + 1
+                    
+    return high_count, least_count
