@@ -180,3 +180,27 @@ def breakingRecords(scores):
                     high_count = high_count + 1
                     
     return high_count, least_count
+
+### migratory birds
+    # https://www.hackerrank.com/challenges/migratory-birds/problem
+def migratoryBirds(arr):
+
+    arrs = sorted(arr) # sorted for convenience, not necessary
+    arr2 = sorted(list(set(arr))) # list of each unique element in arrs/arr
+    counter_list = [] # number of duplicates for each element in arr2 which is unique
+
+    for i in range(len(arr2)):
+        counter_list.append((arrs.count(arr2[i]))) # append # of counts for each one
+
+    if len(counter_list) == len(set(counter_list)): # no duplicates if true
+        birds2 = counter_list.index(max(counter_list)) # find index of the unique max
+        birds2 = arr2[birds2] # match index with arr2 list to get bird type number
+    else: 
+        filtered_counter_arr2 = [] # list of multiple max duplicate bird type #s
+
+        for i in range(len(counter_list)): 
+            if counter_list[i] == max(counter_list): # if multiple max duplicates
+                filtered_counter_arr2.append(arr2[i])
+        birds2 = min(filtered_counter_arr2)
+ 
+    return birds2
