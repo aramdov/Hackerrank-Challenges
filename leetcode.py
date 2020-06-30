@@ -31,3 +31,26 @@ class Solution:
                 
                 
         return arr
+    
+### Find numbrs with even # of digits (Part of Arrays Learning Module)
+# https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        
+        counter = 0
+        
+        for i in range(len(nums)):
+            var = nums[i]
+            count = 0
+            
+            while (var > 0):
+                count = count + 1
+                var = var//10
+                
+            if count % 2 == 0:
+                counter = counter + 1
+                
+        return counter
+    
+
+
