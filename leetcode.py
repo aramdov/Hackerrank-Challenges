@@ -54,3 +54,31 @@ class Solution:
     
 
 
+### height checker
+#https://leetcode.com/problems/height-checker/
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        
+        orig_copy = heights.copy()
+        
+        i=0
+        while i < len(heights):
+            
+            if min(heights[i:]) != heights[i]:
+                # print(heights, i)
+                
+                min_ind = heights[i:].index((min(heights[i:])))
+                min_ind = min_ind + i
+                heights[i], heights[min_ind] = heights[min_ind], heights[i]
+                
+                # print(heights, i)
+                
+            i = i + 1
+        
+        counter = 0
+        for z in range(len(orig_copy)):
+            
+            if heights[z] != orig_copy[z]:
+                counter = counter + 1
+                
+        return counter
