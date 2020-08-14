@@ -116,3 +116,26 @@ class Solution:
         # if pivotarray empty, means we found no pivot points so return -1
         # if pivotarray not empty, return first element because that is left most pivot point
         return -1
+
+### largest number at least 2x bigger than anything else in array
+#https://leetcode.com/problems/largest-number-at-least-twice-of-others/
+def dominantIndex(self, nums: List[int]) -> int:
+        
+        maxint = max(nums) / 2
+        
+        # y >= 2x -> rewrite y/2 >= x
+        for i in range(len(nums)):
+            
+            if 2*maxint == nums[i]:
+                next
+            elif maxint >= nums[i]:
+                next
+            else: 
+                return -1
+        return nums.index(2*maxint)
+    
+    # first time search of array for max value is O(n), then we store that value
+    # could make this more efficient by finding the maxint and remembering its index at same time
+    # if maxint comes across itself -> next
+    # if maxint satisfies constraint, move on to next one
+    # if constraint not matched, exit program and return -1.
