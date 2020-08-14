@@ -82,3 +82,37 @@ class Solution:
                 counter = counter + 1
                 
         return counter
+
+### find pivot index
+# https://leetcode.com/problems/find-pivot-index/
+
+        if not nums:
+            return -1
+        # how to grab postfix_sum from presums pre-computed array?
+        # z = [1, 2, 2, 4, 6], presums = [1, 3, 5, 9, 15], postsums = [15, 14, 12, 10, 6]
+        # leftsum at z[0] is 1-1, rightsum is 15-1
+        # leftsum at z[1] is 3-2, rightsum is 15-3
+        # leftsum at z[2] is 5-2, rightsum is 15-5
+        # leftsum at z[3] is 9-4, rightsum is 15-9
+        # leftsum at i is presums[i]-z[i]
+        # rightsum at i is presums[len(presums)-1] - presums[i]
+        presums = [nums[0]]
+        for h in range(1, len(nums)):
+            presums.append(nums[h]+ presums[h-1])
+        # nums = [1,2,2,4,6], presums = [1]
+        #, h = 1 -> nums[1]=2, presums[0] = 1, presums append 3 to presums[1]
+        # h = 2, -> nums[2] = 2, presums[1] = 3, presums append 5 to presums[2]
+        # h=3, -> nums[3] = 4, presums[2] = 5, presums append 9 to presums[3]
+        
+        def leftsum(int):
+            return presums[int] - nums[int]
+        def rightsum(int):
+            return presums[len(presums)-1] - presums[int]
+        
+        for n in range(len(nums)):
+            if leftsum(n) == rightsum(n):
+                return n
+                
+        # if pivotarray empty, means we found no pivot points so return -1
+        # if pivotarray not empty, return first element because that is left most pivot point
+        return -1
