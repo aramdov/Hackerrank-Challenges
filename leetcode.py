@@ -139,3 +139,51 @@ def dominantIndex(self, nums: List[int]) -> int:
     # if maxint comes across itself -> next
     # if maxint satisfies constraint, move on to next one
     # if constraint not matched, exit program and return -1.
+
+### Word Pattern
+# https://leetcode.com/problems/word-pattern/
+class Solution:
+    def wordPattern(self, pattern: str, str: str) -> bool:
+        
+        # count the number of characters in the "pattern" variable
+        # match with the number of spaced words in "str" variable
+        # this will be the first passover check, also to see if any are NULL to return False
+        
+        # create a hash table (dictionary) for the pattern for each unique character
+        # iterate through the str and identify the value pairs for the hash table
+        
+        # iterate through the abba and check the matching INDEX in str for the hash value
+        
+        strsplit = str[0:len(str)].split(" ")
+        
+        mydict = {}
+        indexer = 0 # turn str into an array of elements and index it with this
+        
+        if len(pattern) != len(strsplit):
+            return False
+        
+        for e in pattern:
+            
+            if e in mydict: # avoid duplicate keys in our dict
+                indexer = indexer + 1
+                next
+                
+            elif strsplit[indexer] in mydict.values():
+                    return False
+                
+            else: 
+                mydict[e] = strsplit[indexer] # add unique char in pattern as a key
+                indexer = indexer + 1
+        
+        for i in range(len(pattern)):
+            
+        
+            if strsplit[i] == mydict[pattern[i]]:
+                # print("it worked")
+                next
+            
+            else:
+                return False
+        
+        return True
+            
