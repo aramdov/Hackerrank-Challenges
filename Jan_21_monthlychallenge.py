@@ -62,3 +62,65 @@ class Solution:
         
 ########################################################
 
+### Day 3
+
+class Solution:
+    
+    def countArrangement(self, n: int) -> int:
+        
+        # define what is a permutation
+        # either condition is true:
+            # 1. Perm[i] is divisible by i (there is trivial case if permutation is ordered 1...n)
+            # 2. i is divisible by perm[i] (same trivial case applies if order is ascending)
+            
+        # n = 3 -> {1,2,3}, {3,2,1}, {1,3,2}, {2,3,1}, {2,1,3}, {3,1,2}
+            # {1,2,3} is trivial case
+            # {3,2,1} -> 1. 3/1, 2/2, 1!/3. Check 2nd condition. 2. 1!/3, nope. Neither works
+        
+        # partial brute force by stopping computation if the permutation violates 1 of the conditions
+        
+        def count_beautiful_arranges(N: int, counter):
+            numbers = [0]*N
+
+            # start index at 1
+            # loop creates the array of 1 to N for initial list
+            for i in range(1, N+1):
+                numbers[(i-1)] = i
+            
+            #print(counts, "inside beautiful arrange")
+            # call recursive permutation function
+            permutation(numbers, 0)
+
+            
+        def permutation(numbers: list, L: int):
+               
+            #print(counts, "inside permutation")
+            # check each recursive call
+            #print(L)
+            #print(len(numbers))
+            
+            if L == len(numbers):
+                permutation.countser += 1
+                #print(permutation.countser, "permutation countser")
+                #print("if l == len condition met")
+            
+            for j in range(L, len(numbers)):
+
+                swap(numbers, j, L)
+                if numbers[L] % (L+1) == 0 or (L+1) % numbers[L] == 0:
+                    permutation(numbers, L+1)
+                swap(numbers, j, L)
+                
+
+        
+        def swap(numbers: list, x: int, y: int):
+            
+            #pythonic code
+            numbers[x], numbers[y] = numbers[y], numbers[x]
+            
+        
+        permutation.countser = 0
+        count_beautiful_arranges(n, 0)
+        return permutation.countser
+    
+###########################################
