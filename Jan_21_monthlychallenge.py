@@ -124,3 +124,32 @@ class Solution:
         return permutation.countser
     
 ###########################################
+# https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3597/
+class Solution:
+    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
+        
+        
+        word1_concat = ""
+        for substring in word1:
+            
+            word1_concat += substring
+        
+        word2_concat = ""
+        for substring2 in word2:
+            
+            word2_concat += substring2
+                
+        
+        if len(word1_concat) != len(word2_concat):
+            # obvious if length is not equal that they arent the same string
+            # also prevents bugs with the approach in the next for loop iterating with indexes
+            # and traversing 2 arrays of characters in parallel
+            return False
+        
+        for char_idx in range(len(word1_concat)):
+            
+            if word1_concat[char_idx] != word2_concat[char_idx]:
+                return False
+            
+        # if got to here then strings must be equal
+        return True
