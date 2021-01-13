@@ -122,7 +122,10 @@ class Solution:
         permutation.countser = 0
         count_beautiful_arranges(n, 0)
         return permutation.countser
-    
+ 
+
+# Week 2
+
 ###########################################
 # https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3597/
 class Solution:
@@ -153,3 +156,67 @@ class Solution:
             
         # if got to here then strings must be equal
         return True
+    
+######################################################
+# https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3601/
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        
+        
+        
+        # iterate through both linked lists (2 pointer method)
+        # sum corresponding integers, if > 10 -> mod base X(10,20..) carry over the (1,2,3...) to the next index
+        # if one of the linked list reaches the end, turn respective LL element into a 0
+        # no crazy edge case detection needed
+        # l3_head is head of LL to be returned, l3 is to iterate with reference to l3_head and cur_node is for           # current computation
+        
+        carry_over = 0
+        # sum linked list to be returned
+        l3_head = ListNode(0)
+        l3 = l3_head
+
+        
+        while l1 or l2 != None or carry_over != 0:
+            
+
+                l1_term = l1.val if l1 else 0
+                l2_term = l2.val if l2 else 0
+                sum = l1_term + l2_term + carry_over
+                #print(sum)
+                #print(l1, l2, carry_over)
+                
+                if sum >= 10:
+                    
+                    cur_node = ListNode()
+                    node_int = sum % 10
+                    cur_node.val = node_int
+                    l3.next = cur_node
+                    l3 = cur_node
+                    
+                    carry_over = 1
+                    
+                    
+                    l1 = l1.next if l1 else l1
+                    l2 = l2.next if l2 else l2
+                
+                else:
+                    
+                    cur_node = ListNode()
+                    cur_node.val = sum
+                    l3.next = cur_node
+                    l3 = cur_node
+                    
+                    carry_over = 0
+                    l1 = l1.next if l1 else l1
+                    l2 = l2.next if l2 else l2
+                    
+                
+        return l3_head.next
+    
+#=======================================================
