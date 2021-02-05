@@ -216,5 +216,32 @@ class Solution:
         if len(nums) > 1 and sorted_counter == (len(nums)-1):
             return nums[0]
         else:
-            return 0    
+            return 0 
+        
+  # Binary search approach
+    def findMin(self, nums: List[int]) -> int:
+        
+        lo = 0
+        hi = len(nums)-1
+        
+        if len(nums) == 1:
+            return nums[0]
+
+        while lo <= hi:
+            # Ex cases -> 1//2 -> 0. 3//2 -> 1. 5//2 -> 2. 7//2 -> 3.
+            mid = lo + (hi-lo)//2  # python floor divison rounds down -> if len(nums) is 5, result will be 2.
+            mid_number = nums[mid]
+
+            # Uncomment the next line for logging the values and fixing errors.
+            # print("lo:", lo, ", hi:", hi, ", mid:", mid, ", mid_number:", mid_number)
+
+            if mid >= lo and nums[mid]<nums[mid-1]:
+                # The middle position is the answer
+                return nums[mid]
+
+            elif nums[mid] > nums[-1]: # this means nums[-1] < nums[mid], thus answer lies to the right
+                # Answer lies in the right half
+                lo = mid + 1     
+            
+#####================================================================================================#####################################################
 
