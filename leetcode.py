@@ -187,3 +187,34 @@ class Solution:
         
         return True
             
+#### Find minimum in rotated sorted array https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+## O(n) linear approach and O(log n) binary search approach
+
+# Linear approach
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        position = 0
+        sorted_counter = 0
+        
+        if len(nums) == 1:
+            return 1
+        
+        while position < len(nums):
+            
+            if position > 0 and nums[position] < nums[position-1]:
+                return nums[position]
+            
+            elif position > 0 and nums[position] > nums[position-1]:
+                sorted_counter += 1
+            
+            position += 1
+            
+        
+        if len(nums) > 1 and sorted_counter == (len(nums)-1):
+            return nums[0]
+        else:
+            return 0    
+
